@@ -1,0 +1,25 @@
+[package]
+name = "visualcetz"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["FERGOUS Abdelhak <https://github.com/fergousA>"]
+license = "MIT"
+description = "Guide visuel de CeTZ 0.5.2 pour Typst."
+repository = "https://github.com/fergousA/visual-cetz"
+keywords = ["cetz", "draw", "figures", "visual", "code"]
+categories = ["guides"]
+disciplines = ["drawing"]
+# `curve` is 0.13; nothing here needs 0.14 or 0.15.
+compiler = "0.13.0"
+
+# Documentation and samples: committed so Universe can serve them and the
+# README can link to them, excluded from the bundle the compiler downloads
+# on every import.
+#
+# `fonts/` stays IN even though Typst will NOT load fonts out of a package
+# (a deliberate compiler decision, verified: an import without --font-path
+# falls back to DejaVu Sans with a warning). It is there so a user can point
+# --font-path at it, or drop it into a typst.app project, without hunting
+# the file down — 120 kB for that convenience. The default font list ends in
+# DejaVu Sans so the sheet renders regardless.
+exclude = ["gallery/**", "examples/**", "NOTES.md"]
